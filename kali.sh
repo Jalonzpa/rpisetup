@@ -13,8 +13,8 @@ passwd root
 echo "Hopefully this works my mans"
 echo "Updating package lists..."
 apt update -y
-echo "Upgrading packages..."
-apt upgrade -y
+echo "Make sure to upgrade packages later my dude. Use apt upgrade -y."
+# apt upgrade -y
 echo "Automatically removing whatever is not needed..."
 apt autoremove -y
 
@@ -26,14 +26,15 @@ update-rc.d -f ssh defaults
 
 # New keys, anyone?
 echo "More SSH stuff but this time it's for da keys..."
-cd ~/
-cd /etc/ssh/
-mkdir insecure_old
-mv ssh_host* insecure_old
-dpkg-reconfigure openssh-server
+echo "If you want to make your Kali RPi buddy more secure, execute this after:\
+cd ~/\
+cd /etc/ssh/\
+mkdir insecure_old\
+mv ssh_host* insecure_old\
+dpkg-reconfigure openssh-server\"
 
 # Some mo' ssh
-echo "Even more SSH stuff when does it end..."
+echo "Even more SSH stuff. When will it end..."
 echo "SSH restart and enable"
 service ssh restart
 update-rc.d -f ssh enable 2 3 4 5

@@ -12,6 +12,8 @@ echo "Updating package lists..."
 apt update -y
 echo "Upgrading packages..."
 apt upgrade -y
+echo "Automatically removing whatever is not needed..."
+apt autoremove -y
 
 # Start up with ssh
 echo "OpenSSH stuff..."

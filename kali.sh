@@ -7,6 +7,9 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+echo "Change yo password!"
+passwd root
+
 echo "Hopefully this works my mans"
 echo "Updating package lists..."
 apt update -y

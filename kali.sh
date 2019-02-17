@@ -1,15 +1,21 @@
 #!/bin/bash
 # Upgrades, y'all
+# Make sure to run as root or this will not work
+
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
 
 echo "Hopefully this works my mans"
 echo "Updating package lists..."
-sudo apt update -y
+apt update -y
 echo "Upgrading packages..."
-sudo apt upgrade -y
+apt upgrade -y
 
 # Start up with ssh
 echo "OpenSSH stuff..."
-sudo apt install openssh-server
+apt install openssh-server
 update-rc.d -f ssh remove
 update-rc.d -f ssh defaults
 
@@ -19,19 +25,19 @@ cd ~/
 cd /etc/ssh/
 mkdir insecure_old
 mv ssh_host* insecure_old
-sudo dpkg-reconfigure openssh-server
+dpkg-reconfigure openssh-server
 
 # Some mo' ssh
 echo "Even more SSH stuff when does it end..."
 echo "SSH restart and enable"
-sudo service ssh restart
+service ssh restart
 update-rc.d -f ssh enable 2 3 4 5
-sudo service ssh start
+service ssh start
 
 # Switch it up
 echo "Finally done SSH"
 echo "MOTD fun-nening..."
-sudo echo \
+echo \
 "   __         __ _                     __     __  __    _         __  __    _                            _            
    / /   ___  / /( )_____   ____ ____  / /_   / /_/ /_  (_)____   / /_/ /_  (_)___  ____ _   ____ _____  (_)___  ____ _
   / /   / _ \/ __/// ___/  / __ `/ _ \/ __/  / __/ __ \/ / ___/  / __/ __ \/ / __ \/ __ `/  / __ `/ __ \/ / __ \/ __ `/

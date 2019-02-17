@@ -16,10 +16,6 @@ mkdir insecure_old
 mv ssh_host* insecure_old
 sudo dpkg-reconfigure openssh-server
 
-# How about some root login
-cd ~/
-sudo sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
-
 # Some mo' ssh
 sudo service ssh restart
 update-rc.d -f ssh enable 2 3 4 5

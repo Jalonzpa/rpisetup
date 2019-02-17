@@ -1,5 +1,6 @@
 #!/bin/bash
 # Upgrades, y'all
+
 echo "Hopefully this works my mans"
 echo "Updating package lists..."
 sudo apt update -y
@@ -30,7 +31,8 @@ sudo service ssh start
 # Switch it up
 echo "Finally done SSH"
 echo "MOTD fun-nening..."
-sudo echo "          
+sudo echo \
+"   __         __ _                     __     __  __    _         __  __    _                            _            
    / /   ___  / /( )_____   ____ ____  / /_   / /_/ /_  (_)____   / /_/ /_  (_)___  ____ _   ____ _____  (_)___  ____ _
   / /   / _ \/ __/// ___/  / __ `/ _ \/ __/  / __/ __ \/ / ___/  / __/ __ \/ / __ \/ __ `/  / __ `/ __ \/ / __ \/ __ `/
  / /___/  __/ /_  (__  )  / /_/ /  __/ /_   / /_/ / / / (__  )  / /_/ / / / / / / / /_/ /  / /_/ / /_/ / / / / / /_/ / 
